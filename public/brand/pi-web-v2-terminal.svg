@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252 72" role="img" aria-labelledby="title desc">
+  <title id="title">PI Web V2</title>
+  <desc id="desc">PI Web V2 金融运营控制台品牌标识</desc>
+  <defs>
+    <linearGradient id="frame" x1="8" y1="4" x2="64" y2="68" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3D98C"/>
+      <stop offset=".32" stop-color="#C89631"/>
+      <stop offset=".72" stop-color="#765016"/>
+      <stop offset="1" stop-color="#D7AE4C"/>
+    </linearGradient>
+    <linearGradient id="leather" x1="12" y1="8" x2="59" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#181A1D"/>
+      <stop offset=".48" stop-color="#090A0C"/>
+      <stop offset="1" stop-color="#121417"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="21" y1="17" x2="54" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF0B8"/>
+      <stop offset=".34" stop-color="#E0B657"/>
+      <stop offset=".7" stop-color="#A8741D"/>
+      <stop offset="1" stop-color="#F0CE72"/>
+    </linearGradient>
+    <linearGradient id="wordmark" x1="84" y1="20" x2="225" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8EAC1"/>
+      <stop offset=".52" stop-color="#DDB252"/>
+      <stop offset="1" stop-color="#9B6E20"/>
+    </linearGradient>
+    <pattern id="grain" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M-1 7 7-1M3 9l6-6" stroke="#FFFFFF" stroke-opacity=".025" stroke-width=".7"/>
+      <circle cx="2" cy="2" r=".45" fill="#FFFFFF" fill-opacity=".035"/>
+    </pattern>
+  </defs>
+  <g>
+    <rect x="3.5" y="3.5" width="65" height="65" rx="15.5" fill="#060708" stroke="url(#frame)"/>
+    <rect x="7" y="7" width="58" height="58" rx="12.5" fill="url(#leather)" stroke="#FFFFFF" stroke-opacity=".07"/>
+    <rect x="7" y="7" width="58" height="58" rx="12.5" fill="url(#grain)"/>
+    <path d="M20 17h19.2C48.9 17 55 22.6 55 31.1c0 8.6-6.1 14.2-15.8 14.2h-8.8V56H20V17Zm10.4 9v10.4h8.2c3.9 0 6-1.8 6-5.3 0-3.4-2.1-5.1-6-5.1h-8.2Z" fill="url(#gold)"/>
+    <path d="M50.6 45.2v10.9" stroke="#E6BE5D" stroke-width="4.2" stroke-linecap="square"/>
+    <path d="M18 60h36" stroke="#D6AA42" stroke-opacity=".58" stroke-width="1"/>
+    <circle cx="58" cy="13.8" r="1.7" fill="#D6AA42"/>
+  </g>
+  <path d="M82 15v42" stroke="#D6AA42" stroke-opacity=".26"/>
+  <text x="98" y="33" fill="url(#wordmark)" font-family="Segoe UI Variable, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="3.2">PI WEB V2</text>
+  <text x="98" y="51" fill="#8C929B" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="8.5" font-weight="500" letter-spacing="2.1">金融运营控制台</text>
+  <path d="M98 59h133" stroke="#D6AA42" stroke-opacity=".24"/>
+  <circle cx="238" cy="59" r="1.7" fill="#D6AA42"/>
+</svg>

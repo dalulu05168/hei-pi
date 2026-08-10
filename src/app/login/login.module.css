@@ -1,0 +1,453 @@
+.page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #e7eef3;
+  background: #050b14;
+}
+
+.backgroundEntrance {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  animation: backgroundReveal 720ms 260ms forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.worldMap,
+.dataGrid,
+.networkLayer,
+.vignette {
+  position: absolute;
+  inset: 0;
+}
+
+.worldMap {
+  z-index: -4;
+  background-image: url("/brand/actinver-world-map.png");
+  background-position: center;
+  background-size: cover;
+  opacity: 0.78;
+  filter: saturate(0.86) contrast(1.05);
+  transform: scale(1.015);
+  animation: mapSettle 1400ms 260ms forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dataGrid {
+  z-index: -3;
+  background-image:
+    linear-gradient(rgba(151, 183, 207, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(151, 183, 207, 0.055) 1px, transparent 1px);
+  background-size: clamp(44px, 3.1vw, 68px) clamp(44px, 3.1vw, 68px);
+  mask-image: radial-gradient(circle at 50% 48%, #000 28%, rgba(0, 0, 0, 0.68) 72%, transparent 100%);
+}
+
+.networkLayer {
+  z-index: -2;
+  overflow: hidden;
+}
+
+.networkLayer::before,
+.networkLayer::after {
+  position: absolute;
+  width: 42vw;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(86, 155, 205, 0.25), transparent);
+  transform-origin: left center;
+}
+
+.networkLayer::before {
+  top: 29%;
+  left: 8%;
+  transform: rotate(13deg);
+}
+
+.networkLayer::after {
+  right: 3%;
+  bottom: 29%;
+  transform: rotate(-15deg);
+}
+
+.networkLayer i {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #6cb6e8;
+  box-shadow: 0 0 8px rgba(69, 159, 221, 0.75);
+  opacity: 0;
+  animation: nodeWake 1700ms calc(460ms + var(--delay, 0ms)) infinite alternate ease-in-out;
+}
+
+.networkLayer i:nth-child(1) { top: 18%; left: 14%; --delay: 50ms; }
+.networkLayer i:nth-child(2) { top: 31%; left: 24%; --delay: 210ms; }
+.networkLayer i:nth-child(3) { top: 47%; left: 11%; --delay: 390ms; }
+.networkLayer i:nth-child(4) { top: 68%; left: 22%; --delay: 120ms; }
+.networkLayer i:nth-child(5) { top: 79%; left: 38%; --delay: 510ms; }
+.networkLayer i:nth-child(6) { top: 22%; left: 43%; --delay: 300ms; }
+.networkLayer i:nth-child(7) { top: 14%; left: 65%; --delay: 610ms; }
+.networkLayer i:nth-child(8) { top: 34%; left: 78%; --delay: 80ms; }
+.networkLayer i:nth-child(9) { top: 57%; left: 88%; --delay: 440ms; }
+.networkLayer i:nth-child(10) { top: 76%; left: 74%; --delay: 180ms; }
+.networkLayer i:nth-child(11) { top: 86%; left: 57%; --delay: 710ms; }
+.networkLayer i:nth-child(12) { top: 45%; left: 68%; --delay: 260ms; }
+.networkLayer i:nth-child(13) { top: 63%; left: 47%; --delay: 590ms; }
+.networkLayer i:nth-child(14) { top: 27%; left: 91%; --delay: 360ms; }
+
+.vignette {
+  z-index: -1;
+  background:
+    radial-gradient(circle at 50% 47%, rgba(36, 78, 109, 0.12), rgba(5, 16, 27, 0.16) 54%, rgba(2, 8, 15, 0.68) 100%),
+    linear-gradient(180deg, rgba(3, 11, 20, 0.08), rgba(3, 12, 21, 0.4));
+}
+
+.systemTitle {
+  position: absolute;
+  top: clamp(30px, 5vh, 66px);
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: max-content;
+  color: #c9d5dd;
+  font-size: clamp(13px, 1vw, 19px);
+  letter-spacing: 0.17em;
+  text-shadow: 0 4px 22px rgba(0, 0, 0, 0.6);
+  transform: translateX(-50%);
+}
+
+.systemTitle span {
+  font-weight: 680;
+}
+
+.systemTitle strong {
+  font-weight: 420;
+}
+
+.systemTitle i {
+  width: 1px;
+  height: 18px;
+  background: rgba(203, 215, 223, 0.28);
+}
+
+.loginStage {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(116px, 14vh, 158px) 32px 82px;
+}
+
+.loginCard {
+  position: relative;
+  width: min(650px, 92vw);
+  padding: clamp(105px, 13vh, 136px) clamp(34px, 3.2vw, 54px) 30px;
+  overflow: hidden;
+  border: 1px solid rgba(191, 211, 225, 0.58);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(25, 52, 75, 0.91), rgba(12, 31, 48, 0.94)),
+    rgba(11, 29, 45, 0.92);
+  box-shadow:
+    0 38px 100px rgba(0, 5, 12, 0.66),
+    0 0 0 1px rgba(117, 158, 187, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 48px rgba(118, 168, 203, 0.045);
+  backdrop-filter: blur(22px) saturate(1.05);
+}
+
+.loginCard::before {
+  position: absolute;
+  inset: 5px;
+  pointer-events: none;
+  border: 1px solid rgba(139, 174, 199, 0.19);
+  border-radius: 5px;
+  content: "";
+}
+
+.loginCard::after {
+  position: absolute;
+  top: 0;
+  left: 18%;
+  width: 64%;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(235, 243, 248, 0.75), transparent);
+}
+
+.accessRail {
+  position: absolute;
+  top: 17px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #70889a;
+  font-size: 7px;
+  font-weight: 650;
+  letter-spacing: 0.18em;
+}
+
+.accessRail i {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, rgba(118, 150, 173, 0.28), transparent);
+}
+
+.logoWrap {
+  position: absolute;
+  z-index: 2;
+  top: calc(50% - 248px);
+  left: 50%;
+  display: flex;
+  height: 102px;
+  width: min(365px, 70vw);
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.58));
+  transform: translateX(-50%);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid rgba(181, 205, 223, 0.16);
+}
+
+.cardHeader span {
+  color: #8fa6b7;
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.21em;
+}
+
+.cardHeader h1 {
+  margin: 7px 0 0;
+  color: #edf3f7;
+  font-size: 27px;
+  font-weight: 620;
+  letter-spacing: 0.04em;
+}
+
+.cardHeader p {
+  margin: 7px 0 0;
+  color: #8da2b2;
+  font-size: 11px;
+}
+
+.securityMark {
+  display: grid;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid rgba(199, 217, 230, 0.25);
+  border-radius: 6px;
+  color: #c7d6e0;
+  background: linear-gradient(145deg, rgba(175, 203, 223, 0.08), rgba(88, 122, 148, 0.02));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.securityStatus {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(181, 205, 223, 0.14);
+  color: #8097a8;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.securityStatus span,
+.securityStatus strong {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.securityStatus strong {
+  color: #65d99b;
+  font-weight: 570;
+}
+
+.systemStatus {
+  position: absolute;
+  bottom: clamp(24px, 3.7vh, 44px);
+  left: clamp(28px, 4.2vw, 72px);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #8ea2b1;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.systemStatus strong {
+  color: #d8e3ea;
+  font-weight: 560;
+}
+
+.systemStatus i {
+  color: #4f687b;
+  font-style: normal;
+}
+
+.connectionStatus {
+  position: absolute;
+  right: clamp(28px, 4.2vw, 72px);
+  bottom: clamp(24px, 3.7vh, 44px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #6f8798;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.connectionStatus strong {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #b8c8d3;
+  font-weight: 560;
+}
+
+.connectionStatus strong i,
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #31d77c;
+  box-shadow: 0 0 12px rgba(49, 215, 124, 0.72);
+  animation: livePulse 1800ms infinite ease-in-out;
+}
+
+.logoEntrance,
+.titleEntrance,
+.cardEntrance,
+.statusEntrance,
+.loginCard :global(form) > div:nth-child(1),
+.loginCard :global(form) > div:nth-child(2),
+.loginCard :global(form) > button {
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.logoEntrance {
+  animation: centeredLogoEnter 620ms 40ms forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.titleEntrance {
+  animation: centeredTitleEnter 620ms 430ms forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cardEntrance {
+  filter: blur(8px);
+  animation: cardReveal 700ms 700ms forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.loginCard :global(form) > div:nth-child(1) {
+  animation: controlReveal 500ms 1120ms forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.loginCard :global(form) > div:nth-child(2) {
+  animation: controlReveal 500ms 1240ms forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.loginCard :global(form) > button {
+  animation: controlReveal 500ms 1380ms forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.statusEntrance {
+  animation: statusReveal 480ms 1540ms forwards ease-out;
+}
+
+@keyframes centeredLogoEnter {
+  from { opacity: 0; transform: translate3d(-50%, 8px, 0) scale(0.985); filter: blur(5px) drop-shadow(0 10px 26px rgba(0, 0, 0, 0.58)); }
+  to { opacity: 1; transform: translate3d(-50%, 0, 0) scale(1); filter: blur(0) drop-shadow(0 10px 26px rgba(0, 0, 0, 0.58)); }
+}
+
+@keyframes backgroundReveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes mapSettle {
+  from { transform: scale(1.04); filter: blur(3px) saturate(0.78) contrast(1.05); }
+  to { transform: scale(1.015); filter: blur(0) saturate(0.86) contrast(1.05); }
+}
+
+@keyframes centeredTitleEnter {
+  from { opacity: 0; transform: translate3d(-50%, 7px, 0); }
+  to { opacity: 1; transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes cardReveal {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); filter: blur(8px); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+}
+
+@keyframes controlReveal {
+  from { opacity: 0; transform: translate3d(0, 9px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes statusReveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes nodeWake {
+  0% { opacity: 0.12; transform: scale(0.72); }
+  100% { opacity: 0.72; transform: scale(1.18); }
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 0.72; box-shadow: 0 0 7px rgba(49, 215, 124, 0.48); }
+  50% { opacity: 1; box-shadow: 0 0 15px rgba(49, 215, 124, 0.82); }
+}
+
+@media (max-height: 820px) {
+  .loginStage { padding-top: 94px; padding-bottom: 44px; }
+  .loginCard { padding-top: 88px; padding-bottom: 22px; }
+  .logoWrap { top: calc(50% - 214px); height: 82px; width: min(320px, 66vw); }
+  .cardHeader { padding-bottom: 14px; }
+  .securityStatus { margin-top: 16px; padding-top: 14px; }
+}
+
+@media (min-width: 2560px) {
+  .loginCard { width: 720px; }
+  .logoWrap { width: 410px; top: calc(50% - 270px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backgroundEntrance,
+  .logoEntrance,
+  .titleEntrance,
+  .cardEntrance,
+  .statusEntrance,
+  .loginCard :global(form) > div:nth-child(1),
+  .loginCard :global(form) > div:nth-child(2),
+  .loginCard :global(form) > button {
+    opacity: 1;
+    animation: none;
+    filter: none;
+  }
+
+  .titleEntrance,
+  .logoEntrance { transform: translateX(-50%); }
+  .networkLayer i,
+  .connectionStatus strong i,
+  .liveDot { animation: none; }
+}

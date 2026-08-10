@@ -1,0 +1,25 @@
+:root {
+  --pi-color-brand: #f4c430;
+  --pi-color-brand-strong: #d9a817;
+  --pi-color-brand-soft: rgba(244, 196, 48, 0.1);
+  --pi-color-canvas: #031426;
+  --pi-color-sidebar: #07111d;
+  --pi-color-header: rgba(2, 13, 25, 0.98);
+  --pi-color-surface: #071c2e;
+  --pi-color-surface-raised: #0a263d;
+  --pi-color-surface-subtle: #061724;
+  --pi-color-border: rgba(101, 139, 168, 0.38);
+  --pi-color-border-strong: rgba(159, 185, 204, 0.56);
+  --pi-color-text: #d8e1e8;
+  --pi-color-text-muted: #a5b4c0;
+  --pi-color-text-faint: #72889b;
+  --pi-color-success: #dce4ea;
+  --pi-color-warning: #f4c430;
+  --pi-color-danger: #dce4ea;
+  --pi-shadow-panel: 0 22px 60px rgba(0, 4, 10, 0.34);
+  --pi-panel-highlight: rgba(220, 235, 245, 0.18);
+  --pi-panel-background: linear-gradient(145deg, rgba(16, 33, 49, 0.96), rgba(8, 18, 29, 0.98));
+  --pi-control-background: rgba(5, 15, 25, 0.78);
+  --pi-radius-panel: 2px;
+  --pi-radius-control: 2px;
+}

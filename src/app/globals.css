@@ -1,0 +1,182 @@
+@import "tailwindcss";
+@import "../styles/tokens.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 1280px;
+  height: 100%;
+  overflow: hidden;
+  background: var(--pi-color-canvas);
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  background-color: var(--pi-color-canvas);
+  background-image:
+    linear-gradient(rgba(149, 184, 211, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(149, 184, 211, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  color: var(--pi-color-text);
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+}
+
+.actinver-terminal :is(h1, h2, h3, h4, p, span, th, td, label, button, a) {
+  text-rendering: geometricPrecision;
+}
+
+.actinver-terminal :is(.text-white, .text-\[\#fff\], .text-\[\#ffffff\]) {
+  color: var(--pi-color-text) !important;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 74% 8%, rgba(34, 82, 119, 0.13), transparent 34%),
+    linear-gradient(115deg, transparent 0 48%, rgba(164, 194, 216, 0.018) 48% 49%, transparent 49% 100%);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(205, 225, 239, 0.9);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--pi-color-brand);
+  color: #071421;
+}
+
+.actinver-terminal {
+  color-scheme: dark;
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+.actinver-terminal .font-mono {
+  font-family: "Microsoft YaHei UI", "Segoe UI", Arial, sans-serif !important;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Keep all module workspaces in the same silver / deep-blue terminal family. */
+.actinver-terminal :is(.text-\[\#66da91\], .text-\[\#69ad8b\], .text-\[\#91ceb0\], .text-\[\#36d47f\], .text-\[\#ef5350\]) {
+  color: var(--pi-color-text-muted) !important;
+}
+
+.actinver-terminal :is(.rounded-xl, .rounded-2xl) {
+  border-radius: var(--pi-radius-panel);
+}
+
+.actinver-terminal :is(.rounded-lg, .rounded-md) {
+  border-radius: var(--pi-radius-control);
+}
+
+.actinver-terminal :is(input, select, textarea) {
+  border-color: var(--pi-color-border);
+  background-color: var(--pi-control-background);
+  color: var(--pi-color-text);
+}
+
+.actinver-terminal :is(input, select, textarea):focus {
+  border-color: rgba(216, 229, 238, 0.5);
+  box-shadow: 0 0 0 1px rgba(216, 229, 238, 0.08);
+}
+
+.actinver-terminal table thead {
+  background: rgba(176, 204, 224, 0.035);
+}
+
+.actinver-terminal table tbody tr {
+  transition: background-color 140ms ease, border-color 140ms ease;
+}
+
+.actinver-terminal table tbody tr:hover {
+  background-color: rgba(175, 205, 226, 0.035);
+}
+
+.terminal-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--pi-color-border);
+  border-radius: var(--pi-radius-panel);
+  background: var(--pi-panel-background);
+  box-shadow: var(--pi-shadow-panel);
+}
+
+.terminal-card,
+.terminal-panel[data-interactive="true"] {
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.actinver-terminal :is(article, section)[class*="border"] {
+  transition: transform 170ms ease, border-color 170ms ease, box-shadow 170ms ease;
+}
+
+.actinver-terminal :is(article, section)[class*="border"]:hover {
+  border-color: rgba(244, 196, 48, 0.32);
+  box-shadow: 0 12px 28px rgba(0, 4, 10, 0.28), 0 0 0 1px rgba(244, 196, 48, 0.04);
+}
+
+.terminal-card:hover,
+.terminal-panel[data-interactive="true"]:hover {
+  transform: translateY(-2px);
+  border-color: rgba(244, 196, 48, 0.42);
+  box-shadow: 0 16px 34px rgba(0, 4, 10, 0.38), 0 0 0 1px rgba(244, 196, 48, 0.08);
+}
+
+.terminal-panel::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(90deg, transparent, var(--pi-panel-highlight), transparent);
+}
+
+.terminal-kicker {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  color: var(--pi-color-text-faint);
+  text-transform: uppercase;
+}
+
+.terminal-empty-grid {
+  background-image:
+    linear-gradient(rgba(176, 204, 224, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(176, 204, 224, 0.028) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.terminal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(176, 204, 224, 0.2) transparent;
+}
+
+/* The buy configuration canvas follows the reference from the top edge. */
+.actinver-terminal section.flex.min-h-0.flex-col.justify-center.gap-5 {
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+}

@@ -1,0 +1,42 @@
+export {
+  clientDetailRecords,
+  clients,
+  clientsDataStatus,
+  emptyClientFinancialSummary,
+  getClientById,
+  getClientDetailRecord,
+  getClientStats,
+} from "./data";
+export {
+  ClientAnalysisPanel,
+  ClientAssetCard,
+  ClientAvatar,
+  ClientDetailWorkspace,
+  ClientFilter,
+  ClientHoldingsTable,
+  ClientProfileHeader,
+  ClientSectionHeading,
+  ClientStatsCard,
+  ClientStatusDistribution,
+  ClientTable,
+  ClientTransactionsTable,
+  ClientsWorkspace,
+} from "./components";
+export { buildClientBusinessDetail } from "./detail-data";
+export type {
+  Client,
+  ClientAccountSummary,
+  ClientBusinessDetailViewModel,
+  ClientDataStatus,
+  ClientDetailRecord,
+  ClientFilters,
+  ClientFinancialSummary,
+  ClientGender,
+  ClientHolding,
+  ClientLevel,
+  ClientPersonType,
+  ClientStatsSummary,
+  ClientStatus,
+  ClientStudentStatus,
+  ClientTradeHistoryItem,
+} from "./types";
