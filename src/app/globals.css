@@ -24,10 +24,21 @@ body {
   color: var(--pi-color-text);
   font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
   font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .actinver-terminal :is(h1, h2, h3, h4, p, span, th, td, label, button, a) {
   text-rendering: geometricPrecision;
+}
+
+.actinver-terminal :is(h1, h2, h3, h4) {
+  line-height: 1.18;
+}
+
+.actinver-terminal :is(p, td, label) {
+  line-height: 1.5;
 }
 
 .actinver-terminal :is(.text-white, .text-\[\#fff\], .text-\[\#ffffff\]) {
@@ -50,6 +61,7 @@ input,
 select,
 textarea {
   font: inherit;
+  line-height: 1.35;
 }
 
 button,
@@ -70,8 +82,9 @@ a {
 .actinver-terminal {
   color-scheme: dark;
   font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.01em;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.005em;
 }
 
 .actinver-terminal .font-mono {
@@ -103,8 +116,17 @@ a {
   box-shadow: 0 0 0 1px rgba(216, 229, 238, 0.08);
 }
 
+.actinver-terminal table {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
 .actinver-terminal table thead {
   background: rgba(176, 204, 224, 0.035);
+}
+
+.actinver-terminal table th,
+.actinver-terminal table td {
+  vertical-align: middle;
 }
 
 .actinver-terminal table tbody tr {
@@ -122,6 +144,7 @@ a {
   border-radius: var(--pi-radius-panel);
   background: var(--pi-panel-background);
   box-shadow: var(--pi-shadow-panel);
+  line-height: 1.5;
 }
 
 .terminal-card,
@@ -155,9 +178,10 @@ a {
 }
 
 .terminal-kicker {
-  font-size: 9px;
+  font-size: 9.5px;
   font-weight: 700;
-  letter-spacing: 0.17em;
+  line-height: 1.25;
+  letter-spacing: 0.15em;
   color: var(--pi-color-text-faint);
   text-transform: uppercase;
 }
@@ -172,6 +196,15 @@ a {
 .terminal-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: rgba(176, 204, 224, 0.2) transparent;
+}
+
+/* Prevent labels and compact controls from visually touching their borders. */
+.actinver-terminal :is(button, input, select, textarea) {
+  min-height: 34px;
+}
+
+.actinver-terminal :is(button, a, label) {
+  text-underline-offset: 3px;
 }
 
 /* The buy configuration canvas follows the reference from the top edge. */
