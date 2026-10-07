@@ -35,11 +35,15 @@ export function Table<T>({
 }: TableProps<T>) {
   return (
     <div className="terminal-panel terminal-scrollbar overflow-x-auto">
-      <table className="w-full border-collapse text-left text-sm">
+      <table className="w-full border-collapse text-left text-[13px] leading-5">
         <thead className="bg-white/[0.025] text-[var(--pi-color-text-muted)]">
           <tr>
             {columns.map((column) => (
-              <th key={column.key} scope="col" className="px-4 py-3 text-[10px] font-medium tracking-[0.08em]">
+              <th
+                key={column.key}
+                scope="col"
+                className="whitespace-nowrap px-5 py-3.5 text-[10.5px] font-semibold leading-4 tracking-[0.07em]"
+              >
                 {column.header}
               </th>
             ))}
@@ -50,7 +54,7 @@ export function Table<T>({
             rows.map((row, rowIndex) => (
               <tr key={getRowKey(row, rowIndex)} className="hover:bg-white/[0.018]">
                 {columns.map((column) => (
-                  <td key={column.key} className="px-4 py-3">
+                  <td key={column.key} className="px-5 py-3.5 align-middle">
                     {column.render
                       ? column.render(row)
                       : renderValue(row, column.key)}
@@ -62,7 +66,7 @@ export function Table<T>({
             <tr>
               <td
                 colSpan={Math.max(columns.length, 1)}
-                className="terminal-empty-grid px-4 py-12 text-center text-[var(--pi-color-text-muted)]"
+                className="terminal-empty-grid px-5 py-12 text-center text-[13px] leading-5 text-[var(--pi-color-text-muted)]"
               >
                 {emptyMessage}
               </td>
